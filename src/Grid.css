@@ -1,0 +1,15 @@
+.grid-wrapper {
+    
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: inline-block;
+    margin: 10px 0 0 10px;
+    flex-grow: 1;
+    height: 100px;
+}
