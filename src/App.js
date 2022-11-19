@@ -1,22 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import useApiData from './utils/useApiData'
+import Grid from './components/Grid/Grid';
 
-function App() {
+function App() {  
+  const breeds = useApiData();
+  const breedNameArr = [];
+
+  for (const curr of breeds) {
+    const { name } = curr;
+    breedNameArr.push(name);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Cat Browser</h1>
+        <div className="menu">
+          <h4>Breed</h4>
+          <select name="breeds" id="dropdown-breeds">
+            { breedNameArr.map((breedName) => (
+              <option value={breedName}>{breedName}</option>
+              ))
+            }
+          </select>
+        </div>
+        <Grid />
+        <button id="button-loadmore" className="button-primary">Load More</button>
       </header>
     </div>
   );
