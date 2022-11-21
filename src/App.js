@@ -1,6 +1,8 @@
 import './App.css';
-import useApiData from './utils/useApiData'
+import useApiData from './utils/useApiData';
+import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import Grid from './components/Grid/Grid';
+import Button from '@mui/material/Button';
 
 function App() {  
   const breeds = useApiData();
@@ -15,17 +17,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Cat Browser</h1>
-        <div className="menu">
-          <h4>Breed</h4>
-          <select name="breeds" id="dropdown-breeds">
-            { breedNameArr.map((breedName) => (
-              <option value={breedName}>{breedName}</option>
-              ))
-            }
-          </select>
-        </div>
+        <DropdownMenu />
         <Grid />
-        <button id="button-loadmore" className="button-primary">Load More</button>
+        <Button variant="contained">Load More</Button>
       </header>
     </div>
   );
